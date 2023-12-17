@@ -1,4 +1,4 @@
-package theDeck;
+package core;
 import javax.swing.*;
 
 public class AboutWindow {

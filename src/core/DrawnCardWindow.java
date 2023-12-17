@@ -1,49 +1,37 @@
-package theDeck;
+package core;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 
-import theDeck.TheDeck_Main.MenuHandler;
-
-public class TheDeck_GUI{
+public class DrawnCardWindow{
 	
 	private BufferedImage image;
 
 	JFrame window;
-	JMenuBar menuBar;
-	JMenu menuAbout;
 	Container con;
 	JButton draw;
 	JPanel cardDisplay;
 	
-	private int x = 7200;
-	private int y = 0;
 	private int width = 420;
 	private int height = 700;
+	private String cardName;
 	
 	@SuppressWarnings("serial")
-	public void GUI(BufferedImage card, MenuHandler mHandler) {
+	public void CardGUI(BufferedImage card, String cardName) {
+		this.cardName = cardName;
 		this.image = card;
 		
 		/**************************************************************************************************/
 		/* Initial Window */
 		
-		window = new JFrame("Deck of Many Things");
-		window.setBounds(750, 180, 440, 767);
+		window = new JFrame(this.cardName);
+		window.setBounds(750, 180, 440, 742);
 		window.setResizable(false);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		window.getContentPane().setBackground(Color.BLACK);
-		window.getContentPane().setLayout(null);
-		
-		menuBar = new JMenuBar();
-		
-		menuAbout = new JMenu("About");
-		menuAbout.addMenuListener(mHandler);
-		menuBar.add(menuAbout);
-		
+		window.getContentPane().setLayout(null);	
 		con = window.getContentPane();
-		
-		window.setJMenuBar(menuBar);
+
 		
 		/**************************************************************************************************/
 
